@@ -395,4 +395,13 @@ public static void delete_student(int std_id) {
         inObjectstream.close();
     }
     
+    
+    public static void backup_grades() throws IOException {
+        File outFile = new File("Grades.dat");
+        FileOutputStream outfileStream = new FileOutputStream(outFile);
+        ObjectOutputStream outObjectStream = new ObjectOutputStream(outfileStream);
+        
+        outObjectStream.writeObject(grades);
+        outObjectStream.close();
+    }
 }
