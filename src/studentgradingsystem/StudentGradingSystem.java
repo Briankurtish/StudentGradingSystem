@@ -156,4 +156,15 @@ public static void delete_student(int std_id) {
       draw_line(79);
         
     }
+    
+    
+    public static void restore_courses() throws IOException, ClassNotFoundException{
+        File inFile = new File("courses.dat");
+        FileInputStream infileStream = new FileInputStream(inFile);
+        ObjectInputStream inObjectstream = new ObjectInputStream(infileStream);
+        courses = (ArrayList)inObjectstream.readObject();
+        
+        inObjectstream.close();
+    }
+    
 }
