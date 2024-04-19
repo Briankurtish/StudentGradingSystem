@@ -32,6 +32,7 @@ public class StudentGradingSystem {
 
         test_students();
         test_Course();
+        test_Department();
         
         System.out.printf("\n");
     }
@@ -100,6 +101,41 @@ public class StudentGradingSystem {
         catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Error");
                 }
+    }
+    
+    
+    public static void test_Department(){
+        
+        try{
+            System.out.printf("\n Tests for Class Department\n\n");
+            System.out.printf("\n Add Department()\n\n");
+            add_department(1, "Information Technology");           
+            add_department(2,"Economics");
+            add_department(3, "Business");
+            
+            
+            System.out.printf("\n List All Departments()\n\n");
+            list_all_departments();
+            System.out.printf("\n Edit Department()\n\n");
+            edit_department(3, "Accountancy");
+            System.out.printf("\n List All Departments()\n\n");
+            list_all_departments();
+            backup_departments();
+            
+            System.out.printf("\nDelete_departments(3)\n\n");
+            delete_department(3);
+            
+            System.out.printf("\n List All Departments()\n\n");
+            list_all_departments();
+            
+            restore_departments();
+            System.out.printf("\n List All Departments()\n\n");
+            list_all_departments();
+        }
+        catch(IOException | ClassNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        
     }
     
     
@@ -340,13 +376,13 @@ public static void delete_student(int std_id) {
         Department dept;
         Iterator <Department> itr = departments.iterator();
         System.out.printf("\n%2s %10s", "Id", "Dept_Name");
-        draw_line(79);
+        draw_line(30);
         
         while(itr.hasNext()){
             dept = itr.next();
             System.out.printf("\n%2s %10s", dept.getDept_id(), dept.getDept_name());
         }
-        draw_line(79);
+        draw_line(30);
     }
     
 }
