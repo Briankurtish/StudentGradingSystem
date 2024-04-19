@@ -410,4 +410,29 @@ public static void delete_student(int std_id) {
         
         grades.add(grd);
     }
+    
+    public static void edit_grade(int id, int std_id, int crs_id,  float grd_mt, float grd_hw, float grd_final, String grd_Igrade){
+        
+        Grades grd = null;
+        Boolean found = false;
+        Iterator <Grades> itr = grades.iterator();
+        
+        while(itr.hasNext()) {
+            grd = itr.next();
+            if(id == grd.getGrd_id()) {
+                found = true;
+                break;
+            }
+        }
+        
+        if(found) {
+            grd.setGrd_id(id);
+            grd.setStd_id(std_id);
+            grd.setCrs_id(crs_id);
+            grd.setGrd_mt(grd_mt);
+            grd.setGrd_hw(grd_hw);
+            grd.setGrd_final(grd_final);
+            grd.setGrd_Igrade(grd_Igrade);
+        }
+    }
 }
