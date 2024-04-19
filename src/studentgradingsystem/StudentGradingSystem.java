@@ -31,8 +31,43 @@ public class StudentGradingSystem {
         attendance = new ArrayList();
 
         test_students();
+        test_Course();
         
         System.out.printf("\n");
+    }
+    
+    public static void test_Course(){
+        
+        try{
+            System.out.printf("\n Tests for Class Course\n\n");
+            System.out.printf("\n Add Course()\n\n");
+            add_course(1, 1, "ITEC314", "Multi Platform Programming");           
+            add_course(2, 1, "ITEC413", "Information Systems Security");
+            add_course(3, 2, "ECON101", "Introduction to Economics");
+            add_course(4, 3, "BUSS103", "Fundamentals of Business Administration");
+            
+            System.out.printf("\n List Course()\n\n");
+            list_courses();
+            System.out.printf("\n Edit Course()\n\n");
+            edit_course(4, 3, "BUSS104", "Fundamentals of Accounting");
+            System.out.printf("\n List Course()\n\n");
+            list_courses();
+            backup_courses();
+            
+            System.out.printf("\nDelete_Course(4)\n\n");
+            delete_course(4);
+            
+            System.out.printf("\n List Course()\n\n");
+            list_courses();
+            
+            restore_courses();
+            System.out.printf("\n List Course()\n\n");
+            list_courses();
+        }
+        catch(IOException | ClassNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        
     }
     
     public static void test_students() {
@@ -66,6 +101,8 @@ public class StudentGradingSystem {
             JOptionPane.showMessageDialog(null, "Error");
                 }
     }
+    
+    
     
     public static void retrieve_student() throws IOException, ClassNotFoundException
     {
@@ -223,12 +260,12 @@ public static void delete_student(int std_id) {
     public static void list_courses() {
         Course crs;
         Iterator <Course> itr = courses.iterator();
-        System.out.printf("\n%2s %5s %5s %15s", "Id", "Dept_ID", "Course_Code", "Course_Name");
+        System.out.printf("\n%2s %10s %15s %20s", "Id", "Dept_ID", "Crs_Code", "Crs_Name");
         draw_line(79);
         
         while(itr.hasNext()){
             crs = itr.next();
-            System.out.printf("\n%2s %5s %5s %15s", crs.getCrs_id(), crs.getDept_id(), crs.getCrs_code(), crs.getCrs_name());
+            System.out.printf("\n%2s %10s %14s %35s", crs.getCrs_id(), crs.getDept_id(), crs.getCrs_code(), crs.getCrs_name());
         }
         draw_line(79);
     }
