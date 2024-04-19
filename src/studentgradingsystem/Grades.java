@@ -28,6 +28,62 @@ public class Grades implements Serializable{
         this.grd_final = grd_final;
         this.grd_Igrade = grd_Igrade;
     }
+
+    public int getGrd_id() {
+        return grd_id;
+    }
+
+    public void setGrd_id(int grd_id) {
+        this.grd_id = grd_id;
+    }
+
+    public int getStd_id() {
+        return std_id;
+    }
+
+    public void setStd_id(int std_id) {
+        this.std_id = std_id;
+    }
+
+    public int getCrs_id() {
+        return crs_id;
+    }
+
+    public void setCrs_id(int crs_id) {
+        this.crs_id = crs_id;
+    }
+
+    public float getGrd_mt() {
+        return grd_mt;
+    }
+
+    public void setGrd_mt(float grd_mt) {
+        this.grd_mt = grd_mt;
+    }
+
+    public float getGrd_hw() {
+        return grd_hw;
+    }
+
+    public void setGrd_hw(float grd_hw) {
+        this.grd_hw = grd_hw;
+    }
+
+    public float getGrd_final() {
+        return grd_final;
+    }
+
+    public void setGrd_final(float grd_final) {
+        this.grd_final = grd_final;
+    }
+
+    public String getGrd_Igrade() {
+        return grd_Igrade;
+    }
+
+    public void setGrd_Igrade(String grd_Igrade) {
+        this.grd_Igrade = grd_Igrade;
+    }
     
     
 
