@@ -514,5 +514,14 @@ public static void delete_student(int std_id) {
         inObjectstream.close();
     }
     
+    public static void backup_attendances() throws IOException {
+        File outFile = new File("Attendances.dat");
+        FileOutputStream outfileStream = new FileOutputStream(outFile);
+        ObjectOutputStream outObjectStream = new ObjectOutputStream(outfileStream);
+        
+        outObjectStream.writeObject(attendance);
+        outObjectStream.close();
+    }
+    
     
 }
