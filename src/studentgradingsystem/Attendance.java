@@ -4,10 +4,16 @@
  */
 package studentgradingsystem;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  *
  * @author Cipher
  */
-public class Attendance {
-    
+public class Attendance implements Serializable{
+    private int att_id;
+    private int std_id;
+    private int crs_id;
+    private Date att_date;
 }
