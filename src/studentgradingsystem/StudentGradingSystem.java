@@ -190,7 +190,7 @@ public static void delete_student(int std_id) {
         
         while(itr.hasNext()) {
             crs = itr.next();
-            if(crs_code == crs.getCrs_code()) {
+            if(id == crs.getCrs_id()) {
                 found = true;
                 break;
             }
@@ -202,6 +202,22 @@ public static void delete_student(int std_id) {
             crs.setDept_id(dept_id);
             crs.setCrs_name(crs_name);
         }
+    }
+    
+    public static void delete_course(int id){
+        Course crs = null;
+        Boolean found = false;
+        Iterator <Course> itr = courses.iterator();
+        
+        while(itr.hasNext()){
+            crs = itr.next();
+            if(id == crs.getCrs_id()){
+                found = true;
+                break;
+            }
+        }
+        
+        if(found) courses.remove(crs);
     }
     
     
