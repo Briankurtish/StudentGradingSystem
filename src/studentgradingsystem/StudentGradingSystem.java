@@ -532,4 +532,27 @@ public static void delete_student(int std_id) {
     }
     
     
+    public static void edit_attendance(int id, int std_id, int crs_id, Date att_date){
+        
+        Attendance att = null;
+        Boolean found = false;
+        Iterator <Attendance> itr = attendance.iterator();
+        
+        while(itr.hasNext()) {
+            att = itr.next();
+            if(id == att.getAtt_id()) {
+                found = true;
+                break;
+            }
+        }
+        
+        if(found) {
+            att.setAtt_id(id);
+            att.setStd_id(std_id);
+            att.setCrs_id(crs_id);
+            att.setAtt_date(att_date);
+        }
+    }
+    
+    
 }
