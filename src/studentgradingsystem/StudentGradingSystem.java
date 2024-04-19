@@ -298,4 +298,26 @@ public static void delete_student(int std_id) {
     }
     
     
+    public static void edit_department(int id, String dept_name){
+        
+        Department dept = null;
+        Boolean found = false;
+        Iterator <Department> itr = departments.iterator();
+        
+        while(itr.hasNext()) {
+            dept = itr.next();
+            if(id == dept.getDept_id()) {
+                found = true;
+                break;
+            }
+        }
+        
+        if(found) {
+            dept.setDept_id(id);
+            dept.setDept_name(dept_name);
+            
+        }
+    }
+    
+    
 }
