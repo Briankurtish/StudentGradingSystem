@@ -385,4 +385,14 @@ public static void delete_student(int std_id) {
         draw_line(30);
     }
     
+    
+    public static void restore_grades() throws IOException, ClassNotFoundException{
+        File inFile = new File("Grades.dat");
+        FileInputStream infileStream = new FileInputStream(inFile);
+        ObjectInputStream inObjectstream = new ObjectInputStream(infileStream);
+        grades = (ArrayList)inObjectstream.readObject();
+        
+        inObjectstream.close();
+    }
+    
 }
