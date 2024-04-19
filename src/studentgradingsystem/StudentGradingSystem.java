@@ -176,6 +176,12 @@ public static void delete_student(int std_id) {
         outObjectStream.close();
     }
     
+    public static void add_course(int id, int dept_id, String crs_code, String crs_name){
+        Course crs = new Course(id, dept_id, crs_code, crs_name);
+        
+        courses.add(crs);
+    }
+    
     
     
 }
