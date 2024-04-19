@@ -272,4 +272,24 @@ public static void delete_student(int std_id) {
     
     
     
+    public static void restore_departments() throws IOException, ClassNotFoundException{
+        File inFile = new File("departments.dat");
+        FileInputStream infileStream = new FileInputStream(inFile);
+        ObjectInputStream inObjectstream = new ObjectInputStream(infileStream);
+        courses = (ArrayList)inObjectstream.readObject();
+        
+        inObjectstream.close();
+    }
+    
+    public static void backup_departments() throws IOException {
+        File outFile = new File("departments.dat");
+        FileOutputStream outfileStream = new FileOutputStream(outFile);
+        ObjectOutputStream outObjectStream = new ObjectOutputStream(outfileStream);
+        
+        outObjectStream.writeObject(courses);
+        outObjectStream.close();
+    }
+    
+    
+    
 }
