@@ -291,5 +291,11 @@ public static void delete_student(int std_id) {
     }
     
     
+    public static void add_department(int id, String dept_name){
+        Department dept = new Department(id, dept_name);
+        
+        courses.add(dept);
+    }
+    
     
 }
