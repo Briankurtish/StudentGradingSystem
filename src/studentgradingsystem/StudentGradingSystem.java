@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -521,6 +522,13 @@ public static void delete_student(int std_id) {
         
         outObjectStream.writeObject(attendance);
         outObjectStream.close();
+    }
+    
+    
+    public static void add_attendance(int id, int std_id, int crs_id, Date att_date){
+        Attendance att = new Attendance(id, std_id, crs_id, att_date);
+        
+        attendance.add(att);
     }
     
     
