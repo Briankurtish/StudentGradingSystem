@@ -35,6 +35,7 @@ public class StudentGradingSystem {
         test_Course();
         test_Department();
         test_Grades();
+        test_Attendance();
         
         System.out.printf("\n");
     }
@@ -169,6 +170,45 @@ public class StudentGradingSystem {
             restore_grades();
             System.out.printf("\n List All Grades()\n\n");
             list_all_grades();
+        }
+        catch(IOException | ClassNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        
+    }
+    
+    public static void test_Attendance(){
+        
+        try{
+            System.out.printf("\n\n Tests for Class Attendance\n\n");
+            System.out.printf("\n Add Attendance()\n\n");
+            add_attendance(1,1,1, "09/04/2021");           
+            add_attendance(2,2,1, "09/04/2021"); 
+            add_attendance(3,3,2, "09/04/2021");           
+            add_attendance(4,4,1, "09/04/2021"); 
+            add_attendance(5,5,1, "09/04/2021");           
+            add_attendance(6,1,1, "12/04/2021"); 
+            add_attendance(7,2,1, "12/04/2021");           
+            add_attendance(5,5,1, "12/04/2021"); 
+            
+            
+            System.out.printf("\n List All Attendances()\n\n");
+            list_all_attendances();
+            System.out.printf("\n Edit Attendance()\n\n");
+            edit_attendance(6,1,1, "28/04/2024");
+            System.out.printf("\n List All Attendances()\n\n");
+            list_all_attendances();
+            backup_attendances();
+            
+            System.out.printf("\nDelete_Attendnaces(6)\n\n");
+            delete_attendance(6);
+            
+            System.out.printf("\n List All Attendances()\n\n");
+            list_all_attendances();
+            
+            restore_attendances();
+            System.out.printf("\n List All Attendances()\n\n");
+            list_all_attendances();
         }
         catch(IOException | ClassNotFoundException e){
             JOptionPane.showMessageDialog(null, "Error");
@@ -525,14 +565,14 @@ public static void delete_student(int std_id) {
     }
     
     
-    public static void add_attendance(int id, int std_id, int crs_id, Date att_date){
+    public static void add_attendance(int id, int std_id, int crs_id, String att_date){
         Attendance att = new Attendance(id, std_id, crs_id, att_date);
         
         attendance.add(att);
     }
     
     
-    public static void edit_attendance(int id, int std_id, int crs_id, Date att_date){
+    public static void edit_attendance(int id, int std_id, int crs_id, String att_date){
         
         Attendance att = null;
         Boolean found = false;
@@ -576,12 +616,12 @@ public static void delete_student(int std_id) {
     public static void list_all_attendances() {
         Attendance att;
         Iterator <Attendance> itr = attendance.iterator();
-        System.out.printf("\n%2s %10s %15s %20s", "Id", "Std_ID", "Crs_ID", "Att_Date");
+        System.out.printf("\n%2s %5s %5s %10s", "Id", "Std_ID", "Crs_ID", "Att_Date");
         draw_line(79);
         
         while(itr.hasNext()){
             att = itr.next();
-            System.out.printf("\n%2s %10s %14s %35s", att.getAtt_id(), att.getStd_id(), att.getCrs_id(), att.getAtt_date());
+            System.out.printf("\n%2s %5s %5s %13s", att.getAtt_id(), att.getStd_id(), att.getCrs_id(), att.getAtt_date());
         }
         draw_line(79);
     }
