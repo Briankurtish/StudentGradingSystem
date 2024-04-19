@@ -555,4 +555,21 @@ public static void delete_student(int std_id) {
     }
     
     
+    public static void delete_attendance(int id){
+        Attendance att = null;
+        Boolean found = false;
+        Iterator <Attendance> itr = attendance.iterator();
+        
+        while(itr.hasNext()){
+            att = itr.next();
+            if(id == att.getAtt_id()){
+                found = true;
+                break;
+            }
+        }
+        
+        if(found) attendance.remove(att);
+    }
+    
+    
 }
