@@ -167,4 +167,15 @@ public static void delete_student(int std_id) {
         inObjectstream.close();
     }
     
+    public static void backup_courses() throws IOException {
+        File outFile = new File("courses.dat");
+        FileOutputStream outfileStream = new FileOutputStream(outFile);
+        ObjectOutputStream outObjectStream = new ObjectOutputStream(outfileStream);
+        
+        outObjectStream.writeObject(courses);
+        outObjectStream.close();
+    }
+    
+    
+    
 }
