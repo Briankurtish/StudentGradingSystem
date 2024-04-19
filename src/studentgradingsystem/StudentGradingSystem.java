@@ -220,6 +220,19 @@ public static void delete_student(int std_id) {
         if(found) courses.remove(crs);
     }
     
+    public static void list_courses() {
+        Course crs;
+        Iterator <Course> itr = courses.iterator();
+        System.out.printf("\n%2s %5s %5s %15s", "Id", "Dept_ID", "Course_Code", "Course_Name");
+        draw_line(79);
+        
+        while(itr.hasNext()){
+            crs = itr.next();
+            System.out.printf("\n%2s %5s %5s %15s", crs.getCrs_id(), crs.getDept_id(), crs.getCrs_code(), crs.getCrs_name());
+        }
+        draw_line(79);
+    }
+    
     
     
 }
