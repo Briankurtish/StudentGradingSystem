@@ -336,4 +336,17 @@ public static void delete_student(int std_id) {
         if(found) departments.remove(dept);
     }
     
+    public static void list_all_departments() {
+        Department dept;
+        Iterator <Department> itr = departments.iterator();
+        System.out.printf("\n%2s %10s", "Id", "Dept_Name");
+        draw_line(79);
+        
+        while(itr.hasNext()){
+            dept = itr.next();
+            System.out.printf("\n%2s %10s", dept.getDept_id(), dept.getDept_name());
+        }
+        draw_line(79);
+    }
+    
 }
