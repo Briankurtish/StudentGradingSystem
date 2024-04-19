@@ -435,4 +435,20 @@ public static void delete_student(int std_id) {
             grd.setGrd_Igrade(grd_Igrade);
         }
     }
+    
+    public static void delete_grade(int id){
+        Grades grd = null;
+        Boolean found = false;
+        Iterator <Grades> itr = grades.iterator();
+        
+        while(itr.hasNext()){
+            grd = itr.next();
+            if(id == grd.getGrd_id()){
+                found = true;
+                break;
+            }
+        }
+        
+        if(found) grades.remove(grd);
+    }
 }
