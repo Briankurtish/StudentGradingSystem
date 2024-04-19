@@ -451,4 +451,18 @@ public static void delete_student(int std_id) {
         
         if(found) grades.remove(grd);
     }
+    
+    
+    public static void list_all_grades() {
+        Grades grd;
+        Iterator <Grades> itr = grades.iterator();
+        System.out.printf("\n%2s %10s %15s %10s %5s %5s %5s ", "Id", "Std_ID", "Crs_ID", "Grd_MT", "Grd_HW", "Grd_FIN", "Grd_IGrade");
+        draw_line(79);
+        
+        while(itr.hasNext()){
+            grd = itr.next();
+            System.out.printf("\n%2s %10s %15s %10s %5s %5s %5s", grd.getGrd_id(), grd.getStd_id(), grd.getCrs_id(), grd.getGrd_mt(), grd.getGrd_hw(), grd.getGrd_final(), grd.getGrd_Igrade());
+        }
+        draw_line(79);
+    }
 }
