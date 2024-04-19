@@ -33,6 +33,7 @@ public class StudentGradingSystem {
         test_students();
         test_Course();
         test_Department();
+        test_Grades();
         
         System.out.printf("\n");
     }
@@ -131,6 +132,42 @@ public class StudentGradingSystem {
             restore_departments();
             System.out.printf("\n List All Departments()\n\n");
             list_all_departments();
+        }
+        catch(IOException | ClassNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        
+    }
+    
+    public static void test_Grades(){
+        
+        try{
+            System.out.printf("\n\n Tests for Class Grades\n\n");
+            System.out.printf("\n Add Grade()\n\n");
+            add_grade(1,1,1,90f,88f,96f,"A");           
+            add_grade(2,2,1,80f,85f,82f,"B+"); 
+            add_grade(3,3,2,75f,80f,77f,"B-"); 
+            add_grade(4,4,2,69f,75f,66f,"C+"); 
+            add_grade(5,5,1,88f,80f,82f,"A-"); 
+            
+            
+            System.out.printf("\n List All Grades()\n\n");
+            list_all_grades();
+            System.out.printf("\n Edit Grade()\n\n");
+            edit_grade(4,4,2,70f,75f,80f,"B-");
+            System.out.printf("\n List All Grades()\n\n");
+            list_all_grades();
+            backup_grades();
+            
+            System.out.printf("\nDelete_Grades(4)\n\n");
+            delete_grade(4);
+            
+            System.out.printf("\n List All Grades()\n\n");
+            list_all_grades();
+            
+            restore_grades();
+            System.out.printf("\n List All Grades()\n\n");
+            list_all_grades();
         }
         catch(IOException | ClassNotFoundException e){
             JOptionPane.showMessageDialog(null, "Error");
@@ -456,13 +493,15 @@ public static void delete_student(int std_id) {
     public static void list_all_grades() {
         Grades grd;
         Iterator <Grades> itr = grades.iterator();
-        System.out.printf("\n%2s %10s %15s %10s %5s %5s %5s ", "Id", "Std_ID", "Crs_ID", "Grd_MT", "Grd_HW", "Grd_FIN", "Grd_IGrade");
+        System.out.printf("\n%2s %5s %5s %10s %10s %10s %15s ", "Id", "Std_ID", "Crs_ID", "Grd_MT", "Grd_HW", "Grd_FIN", "Grd_IGrade");
         draw_line(79);
         
         while(itr.hasNext()){
             grd = itr.next();
-            System.out.printf("\n%2s %10s %15s %10s %5s %5s %5s", grd.getGrd_id(), grd.getStd_id(), grd.getCrs_id(), grd.getGrd_mt(), grd.getGrd_hw(), grd.getGrd_final(), grd.getGrd_Igrade());
+            System.out.printf("\n%2s %5s %5s %10s %10s %10s %12s", grd.getGrd_id(), grd.getStd_id(), grd.getCrs_id(), grd.getGrd_mt(), grd.getGrd_hw(), grd.getGrd_final(), grd.getGrd_Igrade());
         }
         draw_line(79);
     }
+    
+    
 }
