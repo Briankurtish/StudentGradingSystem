@@ -11,5 +11,14 @@ import java.io.Serializable;
  * @author Cipher
  */
 public class Grades implements Serializable{
+    private int grd_id;
+    private int std_id;
+    private int crs_id;
+    private float grd_mt;
+    private float grd_hw; 
+    private float grd_final;
+    private String grd_Igrade;
     
+    
+
 }
