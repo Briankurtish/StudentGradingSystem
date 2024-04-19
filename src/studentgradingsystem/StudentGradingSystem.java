@@ -182,6 +182,28 @@ public static void delete_student(int std_id) {
         courses.add(crs);
     }
     
+    public static void edit_course(int id, int dept_id, String crs_code, String crs_name){
+        
+        Course crs = null;
+        Boolean found = false;
+        Iterator <Course> itr = courses.iterator();
+        
+        while(itr.hasNext()) {
+            crs = itr.next();
+            if(crs_code == crs.getCrs_code()) {
+                found = true;
+                break;
+            }
+        }
+        
+        if(found) {
+            crs.setCrs_code(crs_code);
+            crs.setCrs_id(id);
+            crs.setDept_id(dept_id);
+            crs.setCrs_name(crs_name);
+        }
+    }
+    
     
     
 }
