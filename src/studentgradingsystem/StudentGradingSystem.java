@@ -504,4 +504,15 @@ public static void delete_student(int std_id) {
     }
     
     
+    
+    public static void restore_attendances() throws IOException, ClassNotFoundException{
+        File inFile = new File("Attendances.dat");
+        FileInputStream infileStream = new FileInputStream(inFile);
+        ObjectInputStream inObjectstream = new ObjectInputStream(infileStream);
+        attendance = (ArrayList)inObjectstream.readObject();
+        
+        inObjectstream.close();
+    }
+    
+    
 }
