@@ -404,4 +404,10 @@ public static void delete_student(int std_id) {
         outObjectStream.writeObject(grades);
         outObjectStream.close();
     }
+    
+    public static void add_grade(int id, int std_id, int crs_id,  float grd_mt, float grd_hw, float grd_final, String grd_Igrade){
+        Grades grd = new Grades(id, std_id, crs_id, grd_mt, grd_hw, grd_final, grd_Igrade);
+        
+        grades.add(grd);
+    }
 }
