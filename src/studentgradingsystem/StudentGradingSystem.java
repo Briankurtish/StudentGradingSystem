@@ -572,4 +572,19 @@ public static void delete_student(int std_id) {
     }
     
     
+    
+    public static void list_all_attendances() {
+        Attendance att;
+        Iterator <Attendance> itr = attendance.iterator();
+        System.out.printf("\n%2s %10s %15s %20s", "Id", "Std_ID", "Crs_ID", "Att_Date");
+        draw_line(79);
+        
+        while(itr.hasNext()){
+            att = itr.next();
+            System.out.printf("\n%2s %10s %14s %35s", att.getAtt_id(), att.getStd_id(), att.getCrs_id(), att.getAtt_date());
+        }
+        draw_line(79);
+    }
+    
+    
 }
