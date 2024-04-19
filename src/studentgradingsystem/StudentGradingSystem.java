@@ -276,7 +276,7 @@ public static void delete_student(int std_id) {
         File inFile = new File("departments.dat");
         FileInputStream infileStream = new FileInputStream(inFile);
         ObjectInputStream inObjectstream = new ObjectInputStream(infileStream);
-        courses = (ArrayList)inObjectstream.readObject();
+        departments = (ArrayList)inObjectstream.readObject();
         
         inObjectstream.close();
     }
@@ -286,7 +286,7 @@ public static void delete_student(int std_id) {
         FileOutputStream outfileStream = new FileOutputStream(outFile);
         ObjectOutputStream outObjectStream = new ObjectOutputStream(outfileStream);
         
-        outObjectStream.writeObject(courses);
+        outObjectStream.writeObject(departments);
         outObjectStream.close();
     }
     
@@ -294,7 +294,7 @@ public static void delete_student(int std_id) {
     public static void add_department(int id, String dept_name){
         Department dept = new Department(id, dept_name);
         
-        courses.add(dept);
+        departments.add(dept);
     }
     
     
@@ -319,5 +319,21 @@ public static void delete_student(int std_id) {
         }
     }
     
+    
+    public static void delete_department(int id){
+        Department dept = null;
+        Boolean found = false;
+        Iterator <Department> itr = departments.iterator();
+        
+        while(itr.hasNext()){
+            dept = itr.next();
+            if(id == dept.getDept_id()){
+                found = true;
+                break;
+            }
+        }
+        
+        if(found) departments.remove(dept);
+    }
     
 }
