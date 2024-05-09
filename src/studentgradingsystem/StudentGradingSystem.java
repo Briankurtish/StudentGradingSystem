@@ -7,9 +7,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.GregorianCalendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -19,6 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class StudentGradingSystem {
   public static List students, grades, departments, courses, attendance;
+  public static SimpleDateFormat fmt;  
 
     /**
      * @param args the command line arguments
@@ -30,190 +33,96 @@ public class StudentGradingSystem {
         departments = new ArrayList();
         courses = new ArrayList();
         attendance = new ArrayList();
+        fmt = new SimpleDateFormat("dd/MM/yyyy"); 
 
-        test_students();
-        test_Course();
-        test_Department();
-        test_Grades();
-        test_Attendance();
+        create_students();
+        create_course();
+        create_department();
+        create_grades();
+        create_attendance();
         
         System.out.printf("\n");
     }
     
-    public static void test_Course(){
+
+    
+    public static void create_course(){
         
-        try{
-            System.out.printf("\n Tests for Class Course\n\n");
-            System.out.printf("\n Add Course()\n\n");
-            add_course(1, 1, "ITEC314", "Multi Platform Programming");           
-            add_course(2, 1, "ITEC413", "Information Systems Security");
-            add_course(3, 2, "ECON101", "Introduction to Economics");
-            add_course(4, 3, "BUSS103", "Fundamentals of Business Administration");
-            
-            System.out.printf("\n List Course()\n\n");
-            list_courses();
-            System.out.printf("\n Edit Course()\n\n");
-            edit_course(4, 3, "BUSS104", "Fundamentals of Accounting");
-            System.out.printf("\n List Course()\n\n");
-            list_courses();
-            backup_courses();
-            
-            System.out.printf("\nDelete_Course(4)\n\n");
-            delete_course(4);
-            
-            System.out.printf("\n List Course()\n\n");
-            list_courses();
-            
-            restore_courses();
-            System.out.printf("\n List Course()\n\n");
-            list_courses();
-        }
-        catch(IOException | ClassNotFoundException e){
-            JOptionPane.showMessageDialog(null, "Error");
-        }
+        System.out.printf("\n Add Course()\n\n");
+        add_course(1, 1, "ITEC314", "Multi Platform Programming");           
+        add_course(2, 1, "ITEC413", "Information Systems Security");
+        add_course(3, 2, "ECON101", "Introduction to Economics");
+        add_course(4, 3, "BUSS103", "Fundamentals of Business Administration");
         
+        System.out.printf("\n List Course()\n\n");
+        list_courses();
     }
     
-    public static void test_students() {
-        try {
-        System.out.printf("\n Tests for Class Student\n\n");
+    public static void create_students(){
         System.out.printf("\n Add_student()\n\n");
-        add_student(1, "116229", "Ali Huseyin", "Faisal", "Male", "Turkey", "19/06/1993");
+        add_student(1, "116229", "Ali Huseyin", "Faisal", "Male", "Turkey","19/06/1993");
         add_student(2, "186731", "Ayse", "Kemaller", "Female", "Cyprus", "28/09/1998");
         add_student(3, "168337", "Muhammad", "Fahrad", "Male", "Iran", "30/05/1996");
         add_student(4, "189222", "Fatima", "Reshad", "Female", "Syria", "22/07/1998");
         add_student(5, "199221", "Bahar", "Tunc", "Female", "Cyprus", "27/08/2019");
-        System.out.printf("\n List_student()\n\n");
-        list_students();
-        System.out.printf("\n Edit_student()\n\n");
-        edit_student(2, "186731", "Ayse", "Kemaller", "Female", "Turkey", "28/09/1998");
-        System.out.printf("\n List_student()\n\n");
-        list_students();
-        backup_student();
-        
-        System.out.printf("\n Delete_student(4)\n\n");
-        delete_student(4);
         
         System.out.printf("\n List_student()\n\n");
         list_students();
-        
-        retrieve_student();
-        System.out.printf("\n List_student()\n\n");
-        list_students();
-        }
-        catch (IOException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error");
-                }
+    }
+    
+    public static void create_department(){
+        System.out.printf("\n Add Department()\n\n");
+        add_department(1, "Information Technology");           
+        add_department(2,"Economics");
+        add_department(3, "Business");
+
+
+        System.out.printf("\n List All Departments()\n\n");
+        list_all_departments();
+    }
+    
+    public static void create_grades(){
+        System.out.printf("\n Add Grade()\n\n");
+        add_grade(1,1,1,90f,88f,96f,"A");           
+        add_grade(2,2,1,80f,85f,82f,"B+"); 
+        add_grade(3,3,2,75f,80f,77f,"B-"); 
+        add_grade(4,4,2,69f,75f,66f,"C+"); 
+        add_grade(5,5,1,88f,80f,82f,"A-"); 
+
+
+        System.out.printf("\n List All Grades()\n\n");
+        list_all_grades();
     }
     
     
-    public static void test_Department(){
-        
-        try{
-            System.out.printf("\n Tests for Class Department\n\n");
-            System.out.printf("\n Add Department()\n\n");
-            add_department(1, "Information Technology");           
-            add_department(2,"Economics");
-            add_department(3, "Business");
-            
-            
-            System.out.printf("\n List All Departments()\n\n");
-            list_all_departments();
-            System.out.printf("\n Edit Department()\n\n");
-            edit_department(3, "Accountancy");
-            System.out.printf("\n List All Departments()\n\n");
-            list_all_departments();
-            backup_departments();
-            
-            System.out.printf("\nDelete_departments(3)\n\n");
-            delete_department(3);
-            
-            System.out.printf("\n List All Departments()\n\n");
-            list_all_departments();
-            
-            restore_departments();
-            System.out.printf("\n List All Departments()\n\n");
-            list_all_departments();
-        }
-        catch(IOException | ClassNotFoundException e){
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        
+    public static void create_attendance(){
+        System.out.printf("\n Add Attendance()\n\n");
+        add_attendance(1,1,1, "09/04/2021");           
+        add_attendance(2,2,1, "09/04/2021"); 
+        add_attendance(3,3,2, "09/04/2021");           
+        add_attendance(4,4,1, "09/04/2021"); 
+        add_attendance(5,5,1, "09/04/2021");           
+        add_attendance(6,1,1, "12/04/2021"); 
+        add_attendance(7,2,1, "12/04/2021");           
+        add_attendance(5,5,1, "12/04/2021"); 
+
+
+        System.out.printf("\n List All Attendances()\n\n");
+        list_all_attendances();
     }
     
-    public static void test_Grades(){
-        
-        try{
-            System.out.printf("\n\n Tests for Class Grades\n\n");
-            System.out.printf("\n Add Grade()\n\n");
-            add_grade(1,1,1,90f,88f,96f,"A");           
-            add_grade(2,2,1,80f,85f,82f,"B+"); 
-            add_grade(3,3,2,75f,80f,77f,"B-"); 
-            add_grade(4,4,2,69f,75f,66f,"C+"); 
-            add_grade(5,5,1,88f,80f,82f,"A-"); 
-            
-            
-            System.out.printf("\n List All Grades()\n\n");
-            list_all_grades();
-            System.out.printf("\n Edit Grade()\n\n");
-            edit_grade(4,4,2,70f,75f,80f,"B-");
-            System.out.printf("\n List All Grades()\n\n");
-            list_all_grades();
-            backup_grades();
-            
-            System.out.printf("\nDelete_Grades(4)\n\n");
-            delete_grade(4);
-            
-            System.out.printf("\n List All Grades()\n\n");
-            list_all_grades();
-            
-            restore_grades();
-            System.out.printf("\n List All Grades()\n\n");
-            list_all_grades();
-        }
-        catch(IOException | ClassNotFoundException e){
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        
-    }
     
-    public static void test_Attendance(){
+
+    
+    
+    public static GregorianCalendar strToGregorianCalendar(String stDate){
+        GregorianCalendar bdate;
         
-        try{
-            System.out.printf("\n\n Tests for Class Attendance\n\n");
-            System.out.printf("\n Add Attendance()\n\n");
-            add_attendance(1,1,1, "09/04/2021");           
-            add_attendance(2,2,1, "09/04/2021"); 
-            add_attendance(3,3,2, "09/04/2021");           
-            add_attendance(4,4,1, "09/04/2021"); 
-            add_attendance(5,5,1, "09/04/2021");           
-            add_attendance(6,1,1, "12/04/2021"); 
-            add_attendance(7,2,1, "12/04/2021");           
-            add_attendance(5,5,1, "12/04/2021"); 
-            
-            
-            System.out.printf("\n List All Attendances()\n\n");
-            list_all_attendances();
-            System.out.printf("\n Edit Attendance()\n\n");
-            edit_attendance(6,1,1, "28/04/2024");
-            System.out.printf("\n List All Attendances()\n\n");
-            list_all_attendances();
-            backup_attendances();
-            
-            System.out.printf("\nDelete_Attendnaces(6)\n\n");
-            delete_attendance(6);
-            
-            System.out.printf("\n List All Attendances()\n\n");
-            list_all_attendances();
-            
-            restore_attendances();
-            System.out.printf("\n List All Attendances()\n\n");
-            list_all_attendances();
-        }
-        catch(IOException | ClassNotFoundException e){
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        
+        bdate = new GregorianCalendar(
+                Integer.parseInt(stDate.substring(6,10)),
+                Integer.parseInt(stDate.substring(3,5))-1,
+                Integer.parseInt(stDate.substring(0,2)));
+        return bdate;       
     }
     
     
@@ -625,6 +534,10 @@ public static void delete_student(int std_id) {
         }
         draw_line(79);
     }
+    
+    
+    
+    
     
     
 }

@@ -4,6 +4,13 @@
  */
 package studentgradingsystem;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Cipher
@@ -15,6 +22,8 @@ public class StudentMGMT extends javax.swing.JFrame {
      */
     public StudentMGMT() {
         initComponents();
+        
+        datePicker2.setDateToToday();
     }
 
     /**
@@ -44,7 +53,7 @@ public class StudentMGMT extends javax.swing.JFrame {
         femaleRadio = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         nationality = new javax.swing.JTextField();
-        bdate = new com.github.lgooddatepicker.components.DatePicker();
+        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -59,9 +68,9 @@ public class StudentMGMT extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setText("STUDENT MANAGEMENT");
         jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("STUDENT MANAGEMENT");
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cipher\\Downloads\\17306852241586787822-128(1).png")); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -70,9 +79,9 @@ public class StudentMGMT extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setText("Student ID");
         jLabel3.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Student ID");
 
         std_id.setBackground(new java.awt.Color(102, 102, 102));
         std_id.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,9 +91,9 @@ public class StudentMGMT extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Student Number");
         jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Student Number");
 
         std_num.setBackground(new java.awt.Color(102, 102, 102));
         std_num.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,13 +111,13 @@ public class StudentMGMT extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Student Name");
         jLabel5.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Student Name");
 
+        jLabel6.setText("Student Surname");
         jLabel6.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Student Surname");
 
         std_surname.setBackground(new java.awt.Color(102, 102, 102));
         std_surname.setForeground(new java.awt.Color(255, 255, 255));
@@ -118,13 +127,13 @@ public class StudentMGMT extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("BirthDay");
         jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("BirthDay");
 
+        jLabel8.setText("Gender");
         jLabel8.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Gender");
 
         buttonGroup1.add(maleRadio);
         maleRadio.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
@@ -146,9 +155,9 @@ public class StudentMGMT extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setText("Nationality");
         jLabel9.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Nationality");
 
         nationality.setBackground(new java.awt.Color(102, 102, 102));
         nationality.setForeground(new java.awt.Color(255, 255, 255));
@@ -158,35 +167,37 @@ public class StudentMGMT extends javax.swing.JFrame {
             }
         });
 
-        bdate.setBackground(new java.awt.Color(102, 102, 102));
-        bdate.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        datePicker2.setBackground(new java.awt.Color(102, 102, 102));
+        datePicker2.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
 
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cipher\\Downloads\\3443228331679654522-24.png")); // NOI18N
+        jButton1.setText("New");
         jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cipher\\Downloads\\3443228331679654522-24.png")); // NOI18N
-        jButton1.setText("New");
 
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cipher\\Downloads\\191919650316276581303769-24.png")); // NOI18N
+        jButton2.setText("Save");
         jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cipher\\Downloads\\191919650316276581303769-24.png")); // NOI18N
-        jButton2.setText("Save");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cipher\\Downloads\\14974663671582988848-24.png")); // NOI18N
+        jButton3.setText("Delete");
         jButton3.setBackground(new java.awt.Color(102, 102, 102));
         jButton3.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cipher\\Downloads\\14974663671582988848-24.png")); // NOI18N
-        jButton3.setText("Delete");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jTable1.setBackground(new java.awt.Color(102, 102, 102));
-        jTable1.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -198,7 +209,10 @@ public class StudentMGMT extends javax.swing.JFrame {
                 " Std_ID", "Std_Num", "Name", "Surname", "Gender", "Nationality", "BirthDay"
             }
         ));
+        jTable1.setBackground(new java.awt.Color(102, 102, 102));
         jTable1.setDoubleBuffered(true);
+        jTable1.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setGridColor(new java.awt.Color(102, 102, 102));
         jTable1.setSelectionBackground(new java.awt.Color(153, 153, 153));
         jScrollPane1.setViewportView(jTable1);
@@ -233,7 +247,7 @@ public class StudentMGMT extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(datePicker2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(std_num)
                             .addComponent(std_id))
                         .addGap(79, 79, 79)
@@ -299,7 +313,7 @@ public class StudentMGMT extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel7)
-                                .addComponent(bdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(datePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(nationality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -362,7 +376,8 @@ public class StudentMGMT extends javax.swing.JFrame {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
-        System.exit(0);
+//        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -371,9 +386,18 @@ public class StudentMGMT extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+   
+    
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -408,8 +432,8 @@ public class StudentMGMT extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.github.lgooddatepicker.components.DatePicker bdate;
     private javax.swing.ButtonGroup buttonGroup1;
+    private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JRadioButton femaleRadio;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
