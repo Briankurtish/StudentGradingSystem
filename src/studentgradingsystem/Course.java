@@ -15,6 +15,7 @@ public class Course implements Serializable {
     private int crs_id;
     private  int dept_id;
     private String crs_code;
+    private String crs_name;
     
     public Course (int crs_id, int dept_id, String crs_code, String crs_name){
         this.crs_id = crs_id;
@@ -54,7 +55,7 @@ public class Course implements Serializable {
     public void setCrs_name(String crs_name) {
         this.crs_name = crs_name;
     }
-    private String crs_name;
+    
     
     
 
